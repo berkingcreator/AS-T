@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASİT Terminal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="login-section" class="card" style="max-width: 400px; margin: 0 auto; text-align: center;">
+            <h2>Yönetim Paneli</h2>
+            <input type="email" id="adminEmail" placeholder="E-posta">
+            <input type="password" id="adminPassword" placeholder="Şifre">
+            <button id="loginBtn">Giriş Yap</button>
+        </div>
+
+        <div id="admin-dashboard" style="display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h1>Yönetim Terminali</h1>
+                <button id="logoutBtn" style="background: var(--danger); width: auto; padding: 10px 20px;">Çıkış Yap</button>
+            </div>
+
+            <div class="card">
+                <h2 style="color: var(--danger);">USOM Bekleyen İhbarlar</h2>
+                <div id="ihbarListesi">Yükleniyor...</div>
+            </div>
+
+            <div class="card">
+                <h2>Doküman Ekle ve Yönet</h2>
+                <form id="addDocForm" style="margin-bottom: 2rem;">
+                    <input type="text" id="docTitle" placeholder="Başlık" required>
+                    <textarea id="docText" rows="3" placeholder="Metin" required></textarea>
+                    <textarea id="docCode" rows="3" placeholder="Kod (Opsiyonel)"></textarea>
+                    <input type="url" id="docVideo" placeholder="Video Linki (Opsiyonel)">
+                    <button type="submit">Doküman Ekle</button>
+                </form>
+                <hr style="border: 0; border-top: 1px solid var(--border-color); margin-bottom: 1rem;">
+                <h3>Sistemdeki Dokümanlar</h3>
+                <div id="adminDokumanListesi">Yükleniyor...</div>
+            </div>
+
+            <div class="card">
+                <h2>Haber Ekle ve Yönet</h2>
+                <form id="addNewsForm" style="margin-bottom: 2rem;">
+                    <input type="text" id="newsTitle" placeholder="Haber Başlığı" required>
+                    <textarea id="newsText" rows="3" placeholder="Haber Detayı" required></textarea>
+                    <input type="url" id="newsVideo" placeholder="Video Linki (Opsiyonel)">
+                    <button type="submit">Haber Ekle</button>
+                </form>
+                <hr style="border: 0; border-top: 1px solid var(--border-color); margin-bottom: 1rem;">
+                <h3>Sistemdeki Haberler</h3>
+                <div id="adminHaberListesi">Yükleniyor...</div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

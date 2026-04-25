@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Üye Ol - ASİT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">ASİT</div>
+        <ul>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="dokumanlar.html">Dokümanlar</a></li>
+            <li><a href="haberler.html">Haberler</a></li>
+            <li><a href="ihbar.html">İhbar</a></li>
+            <li><a href="hakkimizda.html">Hakkımızda</a></li>
+            <li><a href="uyeol.html" style="background: rgba(0,229,255,0.1);">Üye Ol</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="card" style="max-width: 600px; margin: 0 auto; border-top: 4px solid var(--accent-neon);">
+            <h2 style="text-align: center; font-size: 2rem;">ASİT Ailesine Katıl</h2>
+            <p style="text-align: center;">Eğitimlerimize katılıp gönüllü bir üye olmak için aşağıdaki formu doldur.</p>
+            
+            <form id="gonulluForm">
+                <input type="text" id="gAdSoyad" placeholder="Adınız Soyadınız" required>
+                <input type="email" id="gEmail" placeholder="E-posta Adresiniz" required>
+                <input type="text" id="gAlan" placeholder="Uzmanlaşmak İstediğin Alan (Örn: DDoS, Web Zafiyetleri)" required>
+                <textarea id="gMesaj" rows="3" placeholder="Kendinden kısaca bahset (Opsiyonel)"></textarea>
+                <button type="submit" style="margin-top: 10px;">Başvuruyu Gönder</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>powered by: <span>YBG13™</span></p>
+    </footer>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
