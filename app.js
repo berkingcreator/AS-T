@@ -219,4 +219,33 @@ if (dokumanlarListesi) {
         });
         dokumanlarListesi.innerHTML = html || "<p style='text-align:center;'>Doküman yok.</p>";
     });
-}S
+}
+// --- ASİT ÖZEL GÜVENLİK KATMANI ---
+let islemSayaci = 0;
+let sonIslemZamani = Date.now();
+const MAX_ISTEK = 3; // 10 saniye içinde maksimum 3 işlem yapılabilir
+const ENGEL_SURESI = 10000; // 10 saniye
+
+async function guvenlikKontrolu() {
+    const suAn = Date.now();
+    
+    // Süre geçtiyse sayacı sıfırla
+    if (suAn - sonIslemZamani > ENGEL_SURESI) {
+        islemSayaci = 0;
+        sonIslemZamani = suAn;
+    }
+    
+    islemSayaci++;
+    
+    if (islemSayaci > MAX_ISTEK) {
+        console.warn("ASİT GÜVENLİK PROTOKOLÜ: Şüpheli DDoS/Spam aktivitesi tespit edildi. İstek engellendi.");
+        
+        // Burada Firebase'deki "engellenen_saldirilar" sayacını 1 artırabiliriz
+        // (Bu sayede admin panelinde kaç saldırı engellediğimizi görebiliriz)
+        
+        alert("Sistem Koruması: Çok fazla istek gönderdiniz. Lütfen bekleyin.");
+        return false; // İşlemi tamamen durdur
+    }
+    
+    return true; // Sorun yok, işleme devam et
+}
