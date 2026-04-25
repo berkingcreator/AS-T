@@ -249,3 +249,40 @@ async function guvenlikKontrolu() {
     
     return true; // Sorun yok, işleme devam et
 }
+
+// Form gönderme işlemlerinde bu kontrolü kullanabilirsin
+const ihbarForm = document.getElementById('ihbarForm');
+if(ihbarForm) {
+    ihbarForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // 1. KVKK Kontrolü
+        const kvkkOnay = document.getElementById('kvkkOnay').checked;
+        if(!kvkkOnay) {
+            alert("Lütfen devam etmek için KVKK metnini onaylayın.");
+            return;
+        }
+
+        // 2. Basit Spam/Hız Kontrolü (DDoS Kalkanı)
+        const suAn = Date.now();
+        if (window.sonIslem && (suAn - window.sonIslem < 5000)) { // 5 saniye kuralı
+            alert("Sistem Koruması: Çok hızlı işlem yapıyorsunuz. Lütfen biraz bekleyin.");
+            return;
+        }
+        window.sonIslem = suAn;
+
+        try {
+            await addDoc(collection(db, "ihbarlar"), {
+                adSoyad: document.getElementById('iAdSoyad').value,
+                email: document.getElementById('iEmail').value,
+                url: document.getElementById('iUrl').value,
+                sikayet: document.getElementById('iSikayet').value,
+                tarih: serverTimestamp()
+            });
+            alert("İhbarınız başarıyla ve güvenli bir şekilde iletildi.");
+            ihbarForm.reset();
+        } catch (error) {
+            alert("Bağlantı hatası: " + error.message);
+        }
+    });
+}
