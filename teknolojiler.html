@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teknolojiler | ASİT</title>
+    <style>
+        :root {
+            --bg-color: #fbfbfd;
+            --text-main: #1d1d1f;
+            --text-muted: #86868b;
+            --accent: #0071e3;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle at 50% 0%, #ffffff 0%, #f5f5f7 100%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navigasyon - Buzlu Cam Efekti */
+        header {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            margin-left: 24px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-main);
+        }
+
+        /* Ana İçerik */
+        main {
+            flex: 1;
+            max-width: 1000px;
+            margin: 80px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: var(--text-muted);
+            margin-bottom: 60px;
+            font-weight: 400;
+        }
+
+        /* Glassmorphism Kartları */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: left;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--text-main);
+            color: white;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .badge.blue {
+            background: var(--accent);
+        }
+
+        .card h2 {
+            font-size: 28px;
+            margin-bottom: 12px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 12px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">ASİT</a>
+            <nav>
+                <a href="index.html">Ana Sayfa</a>
+                <a href="dokumanlar.html">Dokümanlar</a>
+                <a href="haberler.html">Haberler</a>
+                <a href="ihbar.html">İhbar</a>
+                <a href="hakkimizda.html">Hakkımızda</a>
+                <a href="teknolojiler.html" class="active">Teknolojiler</a>
+                <a href="uyeol.html">Üye Ol</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1>Güçlü. Görünmez. Aşılmaz.</h1>
+        <p class="subtitle">Siber savunmanın en saf ve premium hali.</p>
+
+        <div class="grid" id="teknolojiler-grid">
+            <p style="text-align: center; color: var(--text-muted); grid-column: 1 / -1; margin-top: 20px;">Sistem başlatılıyor, teknolojiler yükleniyor...</p>
+        </div>
+    </main>
+
+    <footer>
+        powered by: YBG13™
+    </footer>
+
+    <script type="module" src="app.js"></script>
+
+</body>
+</html>
