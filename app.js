@@ -116,21 +116,6 @@ async function adminListeleriniGetir() {
 }
 
 // --- GENEL SİTE İŞLEMLERİ (Önceki kodlarınla aynı) ---
-
-const ihbarForm = document.getElementById('ihbarForm');
-if(ihbarForm) ihbarForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    await addDoc(collection(db, "ihbarlar"), {
-        adSoyad: document.getElementById('iAdSoyad').value,
-        email: document.getElementById('iEmail').value,
-        url: document.getElementById('iUrl').value,
-        sikayet: document.getElementById('iSikayet').value,
-        tarih: serverTimestamp()
-    });
-    alert("İhbarınız alındı.");
-    ihbarForm.reset();
-});
-
 const gonulluForm = document.getElementById('gonulluForm');
 if(gonulluForm) gonulluForm.addEventListener('submit', async (e) => {
     e.preventDefault();
